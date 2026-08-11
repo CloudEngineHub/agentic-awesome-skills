@@ -29,9 +29,9 @@ installations require the manual setup below.
 The current public project release is `v0.4.3`. The inspection procedure below
 intentionally pins the reviewed, immutable `v0.4.0` image and its recorded
 digests; those values are a historical security baseline and must not be
-silently replaced with a mutable tag. For a normal provider-free demo, use the
-current `v0.4.3` command in the [project README](https://github.com/happy520ai/unified-ai-system#try-it-in-60-seconds).
-A new content review is required before changing this pinned procedure.
+silently replaced with a mutable tag. Use only the reviewed procedure below,
+including for provider-free demos. A new content review is required before
+changing this pinned procedure or following a newer upstream quickstart.
 
 ## Prerequisites And Setup
 
