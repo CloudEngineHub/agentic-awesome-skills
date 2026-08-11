@@ -162,6 +162,22 @@ class EditorialBundlesTests(unittest.TestCase):
                 source_path.read_bytes(),
             )
 
+    def test_flagship_asset_sources_reject_symlinks(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = pathlib.Path(temp_dir)
+            source_path = root / next(iter(editorial_bundles.FLAGSHIP_ASSET_SOURCES.values()))
+            source_path.parent.mkdir(parents=True)
+            external_asset = root / "build-host-secret.png"
+            external_asset.write_bytes(b"sensitive build-host content")
+            source_path.symlink_to(external_asset)
+            self.addCleanup(external_asset.unlink, missing_ok=True)
+
+            with self.assertRaisesRegex(ValueError, "must not contain a symlink"):
+                editorial_bundles._bundle_asset_sources(
+                    root,
+                    {"id": editorial_bundles.FLAGSHIP_BUNDLE_ID},
+                )
+
     def test_portable_skill_export_preserves_body_and_moves_aas_metadata(self):
         source = """---
 name: sample-skill

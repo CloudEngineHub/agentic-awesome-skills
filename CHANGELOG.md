@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+
+- Reject symlinked flagship bundle asset sources before validating or copying them into distributable plugin packages.
+
 ## [15.11.0] - 2026-08-07 - "Agent Plugin Directory Readiness"
 
 > Prepared the flagship AAS Agent & MCP Builder for the OpenAI Plugins Directory with production metadata, public policies, and a reproducible evaluation dossier.
